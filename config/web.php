@@ -5,7 +5,7 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'panelEjemplo',
-    'name'      => "AUTO ORIGINACIÓN APYMSA",
+    'name'      => "HUATULCO CONECTA",
     'version'   => '0.1.0',
     'language'  => 'es-MX',
     'timeZone'  => 'America/Mexico_City',
