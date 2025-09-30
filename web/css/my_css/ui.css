@@ -598,3 +598,112 @@ input:checked + .slider:before {
   }
 }
 
+/*******************************************************
+* Login Styles - Green Theme Override
+*******************************************************/
+
+/* Sobrescribir colores verde del tema original */
+.panel-colorful {
+  background-color: #629f46 !important;
+  border-color: #629f46 !important;
+}
+
+/* Panel de login con borde verde */
+.panel-colorful.middle-box {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-top: 4px solid #629f46 !important;
+  box-shadow: 0 0 20px rgba(98, 159, 70, 0.3) !important;
+}
+
+/* Título del login */
+.panel-colorful h3 {
+  color: #2d5016 !important;
+  font-weight: 600;
+}
+
+/* Texto descriptivo */
+.panel-colorful .text-muted {
+  color: #468928 !important;
+}
+
+/* Campos de input con focus verde */
+.panel-colorful .form-control:focus {
+  border-color: #629f46 !important;
+  box-shadow: 0 0 0 0.2rem rgba(98, 159, 70, 0.25) !important;
+}
+
+/* Botón de login verde */
+.panel-colorful .btn-primary {
+  background-color: #629f46 !important;
+  border-color: #629f46 !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.panel-colorful .btn-primary:hover,
+.panel-colorful .btn-primary:focus {
+  background-color: #468928 !important;
+  border-color: #468928 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(98, 159, 70, 0.4) !important;
+}
+
+/* Links del login */
+.panel-colorful .btn-link {
+  color: #629f46 !important;
+}
+
+.panel-colorful .btn-link:hover {
+  color: #468928 !important;
+  text-decoration: underline;
+}
+
+/* Background overlay con tinte verde */
+.bg-img {
+  filter: sepia(20%) hue-rotate(70deg) saturate(1.2) !important;
+}
+
+/* Validación de errores con tema verde */
+.panel-colorful .has-error .form-control {
+  border-color: #d32f2f !important;
+}
+
+.panel-colorful .has-error .form-control:focus {
+  border-color: #d32f2f !important;
+  box-shadow: 0 0 0 0.2rem rgba(211, 47, 47, 0.25) !important;
+}
+
+/* Campos válidos con tema verde */
+.panel-colorful .has-success .form-control {
+  border-color: #629f46 !important;
+}
+
+.panel-colorful .has-success .form-control:focus {
+  border-color: #468928 !important;
+  box-shadow: 0 0 0 0.2rem rgba(98, 159, 70, 0.25) !important;
+}
+
+/* Animación suave para el panel de login */
+.panel-colorful.middle-box {
+  animation: loginFadeIn 0.8s ease-out;
+}
+
+@keyframes loginFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design para login */
+@media (max-width: 768px) {
+  .panel-colorful.middle-box {
+    margin: 20px !important;
+    max-width: calc(100% - 40px) !important;
+  }
+}
+

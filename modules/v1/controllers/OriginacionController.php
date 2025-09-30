@@ -78,8 +78,8 @@ class OriginacionController extends DefaultController
                 'estado_id',
                 'municipio_id',
                 'codigo_postal_id',
-                'direccion',
-                'num_ext',
+                //'direccion',
+                //'num_ext',
                 //'num_int'
             ];
             foreach ($requiredDirFields as $field) {
@@ -113,6 +113,8 @@ class OriginacionController extends DefaultController
 
             return [
                 'code' => 202,
+                'id' => $personaResult['persona_id'],
+                'folio' => $personaResult['persona_id'] ?? null,
                 'mensaje' => 'Solicitud creada correctamente',
             ];
         #} catch (\Throwable $e) {
