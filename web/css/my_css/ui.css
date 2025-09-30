@@ -7,39 +7,39 @@
 }
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
-    border-color: #000000;
-    background: #000000;
+    border-color: #629f46;
+    background: #629f46;
     color: #fff;
 }
 
 .nav-tabs .nav-link:not(.active):focus, .nav-tabs .nav-link:not(.active):hover{
-    border-color: #000000;
-    background: #000000;
-    color: #000;
+    border-color: #468928;
+    background: #468928;
+    color: #fff;
 }
 
 .navbar-static-top  {
-  background: #cfcfcf;
+  background: #a4d58d;
 }
 
 .navbar-default{
-  background: #1b1b1b;
+  background: #2d5016;
 }
 
 .nav.metismenu > li{
-  background: #1b1b1b;
+  background: #2d5016;
 }
 .navbar-default .nav > li > a:hover, .navbar-default .nav > li > a:focus{
-  background-color: #000;
+  background-color: #468928;
   color: white;
 }
 
 ul.nav-second-level{
-  background: #000;
+  background: #468928;
 }
 
 .nav > li.active {
-  background: #000;
+  background: #629f46;
 }
 
 
@@ -56,7 +56,7 @@ h2 {
 }
 
 .control-label{
-  color: #000;
+  color: #2d5016;
   font-weight: 600;
 }
 
@@ -121,14 +121,14 @@ body{
 }
 
 .my_scrollbar::-webkit-scrollbar-thumb {
-  background-color: #25476a;    /* color of the scroll thumb */
+  background-color: #629f46;    /* color of the scroll thumb */
   border-radius: 20px;       /* roundness of the scroll thumb */
-  border: 3px solid #25476a;  /* creates padding around scroll thumb */
+  border: 3px solid #629f46;  /* creates padding around scroll thumb */
 }
 
 
 button.btn-primary.dim {
-    box-shadow: inset 0 0 0 #9f400c, 0 5px 0 0 #9f400c, 0 10px 5px #999999 !important;
+    box-shadow: inset 0 0 0 #468928, 0 5px 0 0 #468928, 0 10px 5px #999999 !important;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary.focus {
@@ -147,7 +147,7 @@ button.btn-primary.dim {
 
 .form-control.is-valid:focus, .was-validated .form-control:valid:focus{
     border-color: #468928  !important;
-    box-shadow: 0 0 0 0.2rem rgb(222 134 36 / 25%);
+    box-shadow: 0 0 0 0.2rem rgba(98, 159, 70, 0.25);
 }
 
 .div-card:hover {
@@ -197,11 +197,11 @@ button.btn-primary.dim {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #629f46;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #629f46;
 }
 
 input:checked + .slider:before {
@@ -269,11 +269,11 @@ input:checked + .slider:before {
   .btt-icons span.glyphicon,
   .btt-icons .fa {
     font-size: 1.3em;
-    color: #428bca;
+    color: #629f46;
   }
   .btt-icons i.fa:hover,
   .btt-icons span.glyphicon:hover {
-    color: #2A6496;
+    color: #468928;
   }
 
   .bootstrap-table .fixed-table-container {
@@ -399,7 +399,7 @@ input:checked + .slider:before {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .section {
-  background: #f8ac59;
+  background: #a4d58d;
   padding: 50px 0;
 }
 
@@ -441,7 +441,7 @@ input:checked + .slider:before {
   list-style-type: none;
   width: 160px;
   height: 3px;
-  background: #f8ac59;
+  background: #629f46;
 }
 
 .timeline-horizontal ol li:last-child {
@@ -462,7 +462,7 @@ input:checked + .slider:before {
   height: 12px;
   transform: translateY(-50%);
   border-radius: 50%;
-  background: #f8ac59;
+  background: #629f46;
 }
 
 .timeline-horizontal ol li div {
@@ -473,7 +473,7 @@ input:checked + .slider:before {
   font-size: 1rem;
   white-space: normal;
   color: #fff;
-  background: #f8ac59;
+  background: #629f46;
 }
 
 .timeline-horizontal ol li div::before {
@@ -494,7 +494,7 @@ input:checked + .slider:before {
 .timeline-horizontal ol li:nth-child(odd) div::before {
   top: 100%;
   border-width: 8px 8px 0 0;
-  border-color: #f8ac59  transparent transparent transparent;
+  border-color: #629f46  transparent transparent transparent;
 }
 
 .timeline-horizontal ol li:nth-child(even) div {
@@ -504,7 +504,7 @@ input:checked + .slider:before {
 .timeline-horizontal ol li:nth-child(even) div::before {
   top: -8px;
   border-width: 8px 0 0 8px;
-  border-color: transparent transparent transparent #f8ac59;
+  border-color: transparent transparent transparent #629f46;
 }
 
 .timeline-horizontal time {
