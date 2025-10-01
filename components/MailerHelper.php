@@ -41,6 +41,11 @@ class MailerHelper extends Component
 
             // Embeder QR y obtener el cid
             $qrCid = $message->embed($qrTemp);
+            
+            // Embeder logo de Huatulco Conectaweb/img/image.png
+            $logoPath = Yii::getAlias('@webroot') . '/img/image.png';
+            #return $logoPath;
+            $logoCid = $message->embed($logoPath);
 
             // Contenido HTML del correo estilo documento profesional
             $htmlContent = "
@@ -49,26 +54,124 @@ class MailerHelper extends Component
             <head>
                 <meta charset='UTF-8'>
                 <style>
-                    body { font-family: 'Arial', sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
-                    .document { max-width: 650px; margin: 0 auto; background: white; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
-                    .header { text-align: center; padding: 30px 20px 20px; background: linear-gradient(135deg, #629f46, #87c55a); }
-                    .logo-section { background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; display: inline-block; }
-                    .logo-text { color: #e91e63; font-size: 48px; font-weight: bold; margin: 0; line-height: 1; }
-                    .conecta { color: #629f46; font-size: 48px; font-weight: bold; margin: 0; line-height: 1; }
-                    .subtitle { color: #666; font-size: 16px; margin: 10px 0 0 0; }
-                    .content { padding: 40px; }
-                    .welcome { text-align: center; font-size: 32px; font-weight: bold; color: #333; margin-bottom: 30px; letter-spacing: 2px; }
-                    .message { font-size: 16px; line-height: 1.6; color: #333; margin-bottom: 25px; }
-                    .registration-info { background: #f8f9fa; padding: 25px; border-radius: 8px; text-align: center; margin: 30px 0; }
-                    .id-text { font-size: 18px; color: #333; margin-bottom: 15px; }
-                    .qr-container { margin: 20px 0; }
-                    .example-section { background: #fff3e0; padding: 20px; border-radius: 8px; border-left: 4px solid #ff9800; margin: 25px 0; }
-                    .example-title { color: #e65100; font-weight: bold; font-size: 16px; margin-bottom: 10px; }
-                    .example-id { color: #d32f2f; font-size: 18px; font-weight: bold; margin: 10px 0; }
-                    .footer-message { font-size: 16px; color: #333; text-align: center; margin-top: 30px; font-style: italic; }
-                    .watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); 
-                                font-size: 120px; color: rgba(98, 159, 70, 0.05); font-weight: bold; z-index: 0; 
-                                pointer-events: none; white-space: nowrap; }
+                    body { 
+                        font-family: 'Arial', sans-serif; 
+                        margin: 0; 
+                        padding: 20px; 
+                        background: #f5f5f5; 
+                        color: #333;
+                    }
+                    .document { 
+                        max-width: 650px; 
+                        margin: 0 auto; 
+                        background: white; 
+                        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+                        border: 1px solid #ddd;
+                    }
+                    .header { 
+                        background: white; 
+                        padding: 30px 20px; 
+                        border-bottom: 2px solid #629f46;
+                    }
+                    .content { 
+                        padding: 40px 50px; 
+                        position: relative; 
+                        z-index: 1; 
+                    }
+                    .welcome { 
+                        text-align: center; 
+                        font-size: 28px; 
+                        font-weight: bold; 
+                        color: #333; 
+                        margin: 0 0 30px 0; 
+                        letter-spacing: 3px;
+                        text-transform: uppercase;
+                    }
+                    .message { 
+                        font-size: 15px; 
+                        line-height: 1.8; 
+                        color: #333; 
+                        margin-bottom: 25px; 
+                        text-align: justify;
+                    }
+                    .registration-info { 
+                        background: #f8f9fa; 
+                        padding: 30px; 
+                        border: 1px solid #e9ecef; 
+                        text-align: center; 
+                        margin: 30px 0; 
+                    }
+                    .id-text { 
+                        font-size: 16px; 
+                        color: #333; 
+                        margin-bottom: 15px; 
+                    }
+                    .id-number {
+                        color: #629f46;
+                        font-weight: bold;
+                        font-size: 18px;
+                    }
+                    .qr-container { 
+                        margin: 20px 0; 
+                        padding: 20px;
+                        background: white;
+                        border: 2px solid #629f46;
+                        display: inline-block;
+                    }
+                    .example-section { 
+                        background: #fff8e1; 
+                        padding: 20px; 
+                        border: 1px solid #ffcc02; 
+                        margin: 25px 0; 
+                        text-align: center;
+                    }
+                    .example-title { 
+                        color: #ff6f00; 
+                        font-weight: bold; 
+                        font-size: 16px; 
+                        margin-bottom: 10px; 
+                    }
+                    .example-id { 
+                        color: #d32f2f; 
+                        font-size: 18px; 
+                        font-weight: bold; 
+                        margin: 10px 0; 
+                    }
+                    .footer-message { 
+                        font-size: 20px; 
+                        color: #333; 
+                        text-align: center; 
+                        margin: 40px 0 30px 0; 
+                        font-weight: bold;
+                        letter-spacing: 2px;
+                    }
+                    .recommendation {
+                        font-size: 15px;
+                        color: #333;
+                        text-align: center;
+                        margin: 30px 0;
+                        line-height: 1.6;
+                    }
+                    .watermark { 
+                        position: absolute; 
+                        top: 50%; 
+                        left: 50%; 
+                        transform: translate(-50%, -50%) rotate(-45deg); 
+                        font-size: 100px; 
+                        color: rgba(200, 200, 200, 0.1); 
+                        font-weight: bold; 
+                        z-index: 0; 
+                        pointer-events: none; 
+                        white-space: nowrap; 
+                    }
+                    .info-box {
+                        background: #f8f9fa;
+                        border: 1px solid #dee2e6;
+                        padding: 20px;
+                        margin: 30px 0;
+                        font-size: 14px;
+                        line-height: 1.6;
+                    }
                 </style>
             </head>
             <body>
@@ -76,18 +179,9 @@ class MailerHelper extends Component
                     <div style='position: relative; overflow: hidden;'>
                         <div class='watermark'>HUATULCO CONECTA</div>
                         
-                        <div class='header'>
-                            <div class='logo-section'>
-                                <div style='display: flex; align-items: center; justify-content: center; gap: 15px;'>
-                                    <div style='width: 80px; height: 80px; background: linear-gradient(135deg, #629f46, #87c55a); border-radius: 50%; display: flex; align-items: center; justify-content: center;'>
-                                        <div style='color: white; font-size: 24px; font-weight: bold;'>🌊</div>
-                                    </div>
-                                    <div>
-                                        <div class='logo-text'>Huatulco</div>
-                                        <div class='conecta'>Conecta.</div>
-                                    </div>
-                                </div>
-                                <div class='subtitle'>Encuentro de Negocios y<br>Financiamientos Productivos</div>
+                        <div class='header' style='background: white; padding: 30px 20px;'>
+                            <div style='text-align: center;'>
+                                <img src='{$logoCid}' alt='Huatulco Conecta' style='max-width: 400px; height: auto;'>
                             </div>
                         </div>
 
@@ -105,23 +199,24 @@ class MailerHelper extends Component
                             </div>
 
                             <div class='registration-info'>
-                                <div class='id-text'>Id Registro: <strong style='color: #629f46;'>{$id}</strong></div>
-                                
+                                <div class='id-text'>Id Registro: <span class='id-number'>{$id}</span></div>
+                                <div style='font-size: 14px; color: #666; margin: 15px 0;'>
+                                    {imagen del QR personalizado generado por la plataforma}
+                                </div>
                                 
                                 <div class='qr-container'>
-                                    <img src='{$qrCid}' alt='QR de acceso' style='max-width: 200px; border: 3px solid #629f46; border-radius: 10px;'>
+                                    <img src='{$qrCid}' alt='QR de acceso' style='max-width: 180px; height: auto;'>
                                 </div>
                             </div>
 
-                            
 
-                            <div class='message'>
+                            <div class='recommendation'>
                                 Te recomendamos imprimir el presente comprobante de registro y 
                                 presentarlo a tu llegada para agilizar el acceso al evento.
                             </div>
 
                             <div class='footer-message'>
-                                <strong>¡Te Esperamos!</strong>
+                                ¡Te Esperamos!
                             </div>
 
                             <div style='margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 8px; font-size: 14px; color: #666;'>
