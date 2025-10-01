@@ -181,7 +181,7 @@ class MailerHelper extends Component
                         
                         <div class='header' style='background: white; padding: 30px 20px;'>
                             <div style='text-align: center;'>
-                                <img src='{$logoCid}' alt='Huatulco Conecta' style='max-width: 400px; height: auto;'>
+                                <img src='{$logoCid}' alt='Huatulco Conecta' style='max-width: 200px; height: auto;'>
                             </div>
                         </div>
 
@@ -200,9 +200,7 @@ class MailerHelper extends Component
 
                             <div class='registration-info'>
                                 <div class='id-text'>Id Registro: <span class='id-number'>{$id}</span></div>
-                                <div style='font-size: 14px; color: #666; margin: 15px 0;'>
-                                    {imagen del QR personalizado generado por la plataforma}
-                                </div>
+                                
                                 
                                 <div class='qr-container'>
                                     <img src='{$qrCid}' alt='QR de acceso' style='max-width: 180px; height: auto;'>
