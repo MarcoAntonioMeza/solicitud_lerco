@@ -124,6 +124,8 @@ class ClientesHelper
             'errors' => $persona->errors,
             'message' => $saved ? 'Persona guardada correctamente.' : 'Ocurrió un error, intente más tarde o contáctenos.',
             'id' => $persona->id,
+            'persona_nombre' => $persona->getFullName(),
+            'mail' => $persona->email,
         ];
     }
 }

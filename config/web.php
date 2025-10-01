@@ -118,17 +118,36 @@ $config = [
                 ],
             ],
         ],*/
+        #'mailer' => [
+        #    'class' => 'yii\swiftmailer\Mailer',
+        #    'transport' => [
+        #        'class'      => 'Swift_SmtpTransport',
+        #        'host'       => 'lerco.mx',
+        #        'username'   => 'daniel.gaona@app.lerco.mx',
+        #        'password'   => 'daniel2019',
+        #        'port'       => 25,
+        #        'encryption' => false,
+        #    ],
+        #],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
+            #'viewPath' => '@app/mail', // Ajusta esto si es necesario
+            #'viewPath' => '@app/mail',
+            #'viewPath' => '@app/mail', // Asegúrate de que esto apunte a la carpeta correcta
+
+            'useFileTransport' => false, // Cambia a false para enviar correos reales
             'transport' => [
-                'class'      => 'Swift_SmtpTransport',
-                'host'       => 'lerco.mx',
-                'username'   => 'daniel.gaona@app.lerco.mx',
-                'password'   => 'daniel2019',
-                'port'       => 25,
-                'encryption' => false,
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'mail.cresca.com.mx', // Servidor SMTP
+                'username' => 'promocion@cresca.com.mx',
+                'password' => 'y0DG((Fq]yZn',
+                'port' => '587', // o 465 para SSL 587
+                'encryption' => 'tls', // o 'ssl' si es necesario tls
+                //'timeout' => 40,
             ],
         ],
+
+        
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [

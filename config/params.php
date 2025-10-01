@@ -43,7 +43,8 @@ return [
      * Email used in contact form.
      * Users will send you emails to this address.
      */
-    'adminEmail' => 'contact@example.mx',
+    'adminEmail' => 'promocion@cresca.com.mx',
+    
 
     /**
      * Email used in sign up form, when we are sending email with account activation link.

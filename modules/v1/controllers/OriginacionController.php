@@ -4,29 +4,10 @@ namespace app\modules\v1\controllers;
 
 use app\models\cliente\Persona;
 use Yii;
-use app\utils\consultas\Nobarium;
-use app\utils\consultas\ListasRojas;
-use app\utils\helpers\Helper;
 use app\utils\helpers\ClientesHelper;
-use app\utils\helpers\SolicitudHelper;
 
+use app\components\MailerHelper;
 
-use app\models\cuestionario\CuestionariosGrupo;
-use app\models\cuestionario\CuestionariosRespuestas;
-use app\models\logs\LogApi;
-use app\models\solicitud\Solicitud;
-
-use app\models\sucursal\Sucursal;
-
-use app\models\sms\SmsVerificacion;
-
-
-//use app\models\sat\ListasNegrasSat;
-use app\utils\helpers\Cdc;
-use app\utils\consultas\Wallet;
-use app\utils\consultas\Gdc;
-use app\utils\helpers\CurpRfc;
-use app\utils\consultas\Nufi;
 
 class OriginacionController extends DefaultController
 {
@@ -56,8 +37,6 @@ class OriginacionController extends DefaultController
 
         return $behaviors;
     }
-
-
 
     #======================================================================================================
     #                                              SOLICITUD INICIAL
@@ -111,10 +90,14 @@ class OriginacionController extends DefaultController
 
             $transaction->commit();
 
+            $is_enviado = MailerHelper::sendQrMail($personaResult['mail'], $personaResult['persona_nombre'], $personaResult['id']);
+
             return [
                 'code' => 202,
-                'id' => $personaResult['persona_id'],
-                'folio' => $personaResult['persona_id'] ?? null,
+                'id' => $personaResult['id'] ?? null,
+                'folio' => $personaResult['id'] ?? null,
+                'mail' => $personaResult['mail'] ?? null,
+                'is_enviado' => $is_enviado,
                 'mensaje' => 'Solicitud creada correctamente',
             ];
         #} catch (\Throwable $e) {
